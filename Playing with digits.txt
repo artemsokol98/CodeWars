@@ -1,0 +1,74 @@
+https://www.codewars.com/kata/5552101f47fc5178b1000050
+Some numbers have funny properties. For example:
+
+89 --> 8? + 9? = 89 * 1
+
+695 --> 6? + 9? + 5?= 1390 = 695 * 2
+
+46288 --> 4? + 6?+ 2? + 8? + 8? = 2360688 = 46288 * 51
+
+Given a positive integer n written as abcd... (a, b, c, d... being digits) and a positive integer p we want to find a positive integer k, if it exists, such as the sum of the digits of n taken to the successive powers of p is equal to k * n. In other words:
+
+Is there an integer k such as : (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k
+
+If it is the case we will return k, if not return -1.
+
+Note: n, p will always be given as strictly positive integers.
+
+digPow(89, 1) should return 1 since 8? + 9? = 89 = 89 * 1
+digPow(92, 1) should return -1 since there is no k such as 9? + 2? equals 92 * k
+digPow(695, 2) should return 2 since 6? + 9? + 5?= 1390 = 695 * 2
+digPow(46288, 3) should return 51 since 4? + 6?+ 2? + 8? + 8? = 2360688 = 46288 * 51
+#include <cmath>
+#include <string>
+using namespace std;
+class DigPow
+{
+public:
+  static int digPow(int n, int p)
+  {
+  string s=to_string(n);
+
+  int size=s.size();
+  int arr[size];
+  for(int i=0;i<size;i++){
+  
+    switch(s[i]){
+    case '0':{arr[i]=0;break;}
+    case '1':{arr[i]=1;break;}
+    case '2':{arr[i]=2;break;}
+    case '3':{arr[i]=3;break;}
+    case '4':{arr[i]=4;break;}
+    case '5':{arr[i]=5;break;}
+    case '6':{arr[i]=6;break;}
+    case '7':{arr[i]=7;break;}
+    case '8':{arr[i]=8;break;}
+    case '9':{arr[i]=9;break;}
+    default: break;
+    
+    }
+    
+
+
+  }
+  int r=0;
+   for(int i=0;i<size;i++){
+   r=r+pow(arr[i],p);
+   p++;
+   cout<<arr[i]<<endl;
+   
+   }
+   int ans=0;
+  if(r%n==0){
+  ans=r/n;
+  return ans;
+  
+    
+  }
+  else{
+  
+  return -1;
+  
+  }
+  }
+};

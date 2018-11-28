@@ -34,11 +34,13 @@ bool narcissistic(int value)
 		d = d + pow(c, b);
 		value = value / 10;
 	}
-	if (d == a) return true;
-	else return false;
+	if (d == a) return true; cout << "true";
+	else return false; cout << "false";
 }
 int main()
 {
+	narcissistic(66);
+	system("pause");
 	return 0;
 }
 

@@ -14,6 +14,8 @@
 //	Note that 121 has twice the digit 1.
 #include "stdafx.h"
 #include"cmath"
+#include "iostream"
+using namespace std;
 class CountDig
 {
 public:
@@ -34,12 +36,18 @@ public:
 			}
 			if (b == d) e++;
 		}
+		cout << e << endl;
 		return e;
+		
 	}
+	
 };
 
 int main()
 {
-    return 0;
+	CountDig digit;
+	digit.nbDig(5750, 0);
+	system("pause");
+	return 0;
 }
 
